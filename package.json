@@ -2,6 +2,9 @@
   "name": "api-horarios-simples",
   "version": "1.0.0",
   "description": "API simples de horários de aulas",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -13,7 +16,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }

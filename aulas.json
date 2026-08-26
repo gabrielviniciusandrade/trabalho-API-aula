@@ -5,208 +5,208 @@
     "ordem": 1,
     "dia": "Segunda",
     "id": 1
-},
-{
+  },
+  {
     "Aula": "Back End",
     "Professor": "Patrick",
     "ordem": 2,
     "dia": "Segunda",
     "id": 2
-},
-{
+  },
+  {
     "Aula": "Português",
     "Professor": "Carolina",
     "ordem": 3,
     "dia": "Segunda",
     "id": 3
-},
-{
+  },
+  {
     "Aula": "Banco De Dados",
     "Professor": "Patrick",
     "ordem": 4,
     "dia": "Segunda",
     "id": 4
-},
-{
+  },
+  {
     "Aula": "Banco De Dados",
     "Professor": "Patrick",
     "ordem": 5,
     "dia": "Segunda",
     "id": 5
-},
-{
+  },
+  {
     "Aula": "Educação Financeira",
     "Professor": "Fabieli",
     "ordem": 6,
     "dia": "Segunda",
     "id": 6
-},
-{
+  },
+  {
     "Aula": "Fisica",
     "Professor": "Eleandro",
     "ordem": 1,
     "dia": "Terça",
     "id": 7
-},
-{
+  },
+  {
     "Aula": "Fisica",
     "Professor": "Eleandro",
     "ordem": 2,
     "dia": "Terça",
     "id": 8
-},
-{
+  },
+  {
     "Aula": "Sociologia",
     "Professor": "Priscila",
     "ordem": 3,
     "dia": "Terça",
     "id": 9
-},
-{
+  },
+  {
     "Aula": "Banco De Dados",
     "Professor": "Patrick",
     "ordem": 4,
     "dia": "Terça",
     "id": 10
-},
-{
+  },
+  {
     "Aula": "Filosofia",
     "Professor": "Ronaldo",
     "ordem": 5,
     "dia": "Terça",
     "id": 11
-},
-{
+  },
+  {
     "Aula": "Beck End",
     "Professor": "Patrick",
     "ordem": 6,
     "dia": "Terça",
     "id": 12
-},
-{
+  },
+  {
     "Aula": "Inglês",
     "Professor": "Adriele",
     "ordem": 1,
     "dia": "Quarta",
     "id": 13
-},
-{
+  },
+  {
     "Aula": "Matemática",
     "Professor": "Ines",
     "ordem": 2,
     "dia": "Quarta",
     "id": 14
-},
-{
+  },
+  {
     "Aula": "Educação Fisica",
     "Professor": "Samuel",
     "ordem": 3,
     "dia": "Quarta",
     "id": 15
-},
-{
+  },
+  {
     "Aula": "Educação Fisica",
     "Professor": "Samuel",
     "ordem": 4,
     "dia": "Quarta",
     "id": 16
-}, 
-{   "Aula": "Matemática",
+  },
+  {
+    "Aula": "Matemática",
     "Professor": "Ines",
     "ordem": 5,
     "dia": "Quarta",
     "id": 17
-},
-{
+  },
+  {
     "Aula": "Português",
     "Professor": "Carolina",
     "ordem": 6,
     "dia": "Quarta",
     "id": 18
-},
-{
+  },
+  {
     "Aula": "Inovação tecnologia e Empreendorismo",
     "Professor": "Rosa",
     "ordem": 1,
     "dia": "Quinta",
     "id": 19
-},
-{
+  },
+  {
     "Aula": "Filosofia",
     "Professor": "Ronaldo",
     "ordem": 2,
     "dia": "Quinta",
     "id": 20
-},
-{
+  },
+  {
     "Aula": "Front End",
     "Professor": "Josiane",
     "ordem": 3,
     "dia": "Quinta",
     "id": 21
-},
-{
+  },
+  {
     "Aula": "Inglês",
     "Professor": "Adriele",
     "ordem": 4,
     "dia": "Quinta",
     "id": 22
-},
-{
+  },
+  {
     "Aula": "Back End",
     "Professor": "Patrick",
     "ordem": 5,
     "dia": "Quinta",
     "id": 23
-},
-{
+  },
+  {
     "Aula": "Sociologia",
     "Professor": "Priscila",
     "ordem": 6,
     "dia": "Quinta",
     "id": 24
-},
-{
+  },
+  {
     "Aula": "Inovação Tecnologica e Empreendedorismo",
     "Professor": "Rosa",
     "ordem": 1,
     "dia": "Sexta",
     "id": 25
-},
-{
+  },
+  {
     "Aula": "Inovação Tecnologica e Empreendedorismo",
     "Professor": "Rosa",
     "ordem": 2,
     "dia": "Sexta",
     "id": 26
-},
-{
+  },
+  {
     "Aula": "História",
     "Professor": "Helcio",
     "ordem": 3,
     "dia": "Sexta",
     "id": 27
-},
-{
+  },
+  {
     "Aula": "Front End",
     "Professor": "Josiane",
     "ordem": 4,
     "dia": "Sexta",
     "id": 28
-},
-{
+  },
+  {
     "Aula": "História",
     "Professor": "Helcio",
     "ordem": 5,
     "dia": "Sexta",
     "id": 29
-},
-{
+  },
+  {
     "Aula": "Front End",
     "Professor": "Josiane",
     "ordem": 6,
     "dia": "Sexta",
     "id": 30
-}
-
+  }
 ]
