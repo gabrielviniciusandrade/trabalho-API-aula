@@ -30,27 +30,53 @@
                             <li>10h05</li>
                             <li>10h55</li>
                             <li>11h45</li>
-                            <li>12h35</li>
                          </ul>
                     </td>
-                        <td id = "segunda">
+                        <td id = "segunda-feira"> </td>
+                        <td id = "terça-feira"> </td>
+                        <td id = "quarta-feira"> </td>
+                        <td id = "quinta-feira"> </td>
+                        <td id = "sexta-feira"> </td>
+                        
                          <ul>
-                             <li>Arte</li>
-                             <li>Arte</li>
-                             <li>arte</li>
-                             <li>arte</li>
-                             <li>arte</li>
-                            
+                             <li>portugues</li>
+                             <li>back end</li>
+                             <li>portugues</li>
+                             <li>banco de dados</li>
+                             <li>banco de dados</li>
+                             <li>educacao financeira</li>
                          </ul>
                     </td>
-                
-            </tbody>
+                <tr>
+                 <td>
+                    <button onclick="carregar_horario(segunda-feira)">carregar</button></td>
+                    <button onclick="carregar_horario(terça-feira)">carregar</button></td>
+                    <button onclick="carregar_horario(quarta-feira)">carregar</button></td>
+                    <button onclick="carregar_horario(quinta-feira)">carregar</button></td>
+                    <button onclick="carregar_horario(sexta-feira)">carregar</button></td>
+                 </td>
+                </tbody>
         
         </table>
 
     </main> 
 
     <footer></footer>
+
+    <script>
+      
+      async function carregar_horario(dia){
+        const coluna_dia = document.getElementById(dia)
+        try{
+              const link = "http://localhost:3000/horario/" + dia
+        } catch (erro){
+         coluna_dia.innerHTML = "erro ao carregar horários"
+      }
+    }
+
+
+    </script>
+
 
 </body>
 </html>
