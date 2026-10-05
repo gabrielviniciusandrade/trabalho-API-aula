@@ -2,82 +2,121 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horários Kennedy</title>
-</head>
-<body>
-    <header></header>
-    <main>
-        <table>
-            <thead>
-                <th>Horário / Dia</th>
-                <th>Segunda-feira</th>
-                <th>Terça-feira</th>
-                <th>Quarta-feira</th>
-                <th>Quinta-feira</th>
-                <th>Sexta-feira</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>7h20</li>
-                            <li>8h10</li>
-                            <li>9h00</li>
-                            <li>10h05</li>
-                            <li>10h55</li>
-                            <li>11h45</li>
-                        </ul>
-                    </td>
-                    <td id = "Segunda"> </td>
-                    <td id = "Terça"> </td>
-                    <td id = "Quarta"> </td>
-                    <td id = "Quinta"> </td>
-                    <td id = "Sexta"> </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td> <button onclick="carregar_horario('Segunda')">Carregar</button> </td>
-                    <td> <button onclick="carregar_horario('Terça')">Carregar</button> </td>
-                    <td> <button onclick="carregar_horario('Quarta')">Carregar</button> </td>
-                    <td> <button onclick="carregar_horario('Quinta')">Carregar</button> </td>
-                    <td> <button onclick="carregar_horario('Sexta')">Carregar</button> </td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
-    <footer></footer>   
 
-    <script>
-
-        async function carregar_horario(dia) {
-            const coluna_dia = document.getElementById(dia)
-            try {
-                const link = "http://localhost:3000/aulas/" + dia
-                const consulta_api = await fetch(link)
-                if(consulta_api.ok) {
-                    const aulas_dia = await consulta_api.json()
-                    if (aulas_dia.length == 0){
-                        coluna_dia.innerHTML = "Nenhuma aula cadastrada!"
-                    } else {
-                        console.log(aulas_dia)
-                        let html = "<ul>"
-                        aulas_dia.aulas.forEach((aula) => {
-                            html += "<li>" + aula.Aula + "</li>"
-                        })
-                        html += "</ul>"
-                        coluna_dia.innerHTML = html
-                    }
-                } else {
-                    alert(erro)
-                    coluna_dia.innerHTML = "Erro ao carregar horários!"
-                }
-            } catch (erro) {
-                alert(erro)
-                coluna_dia.innerHTML = "Erro ao carregar horários!"
-            }
+    <style>
+        /* Corpo da página */
+        body {
+            font-family: Arial, sans-serif;   /* fonte simples */
+            background: #1e3c72;              /* fundo azul escuro */
+            color: white;                     /* texto branco */
+            text-align: center;               /* centraliza tudo */
+            padding: 30px;                    /* espaço nas bordas */
         }
 
+        /* Caixa branca da tabela */
+        main {
+            background: white;                /* fundo branco */
+            color: black;                     /* texto preto */
+            padding: 20px;                    /* espaço interno */
+            border-radius: 10px;              /* cantos arredondados */
+            display: inline-block;            /* fica do tamanho do conteúdo */
+        }
+
+        /* Tabela */
+        table {
+            border-collapse: collapse;        /* junta as bordas */
+        }
+
+        th, td {
+            border: 1px solid #999;           /* borda cinza */
+            padding: 10px;                    /* espaço interno */
+        }
+
+        th {
+            background: #6a3093;              /* cabeçalho roxo */
+            color: white;
+        }
+
+        /* Botão */
+        button {
+            background: #6a3093;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;                  /* cursor de mãozinha */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📚 Horários Kennedy</h1>
+
+    <main>
+        <table>
+            <!-- Cabeçalho com os dias -->
+            <tr>
+                <th>Horário</th>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+            </tr>
+
+            <!-- Linha dos horários -->
+            <tr>
+                <td>7h20<br>8h10<br>9h00<br>10h05<br>10h55<br>11h45</td>
+                <td id="Segunda"></td>
+                <td id="Terça"></td>
+                <td id="Quarta"></td>
+                <td id="Quinta"></td>
+                <td id="Sexta"></td>
+            </tr>
+
+            <!-- Linha dos botões -->
+            <tr>
+                <td></td>
+                <td><button onclick="carregar('Segunda')">Carregar</button></td>
+                <td><button onclick="carregar('Terça')">Carregar</button></td>
+                <td><button onclick="carregar('Quarta')">Carregar</button></td>
+                <td><button onclick="carregar('Quinta')">Carregar</button></td>
+                <td><button onclick="carregar('Sexta')">Carregar</button></td>
+            </tr>
+        </table>
+    </main>
+
+    <script>
+        // Função que busca as aulas de um dia e mostra na tabela
+        async function carregar(dia) {
+
+            // Pega a célula daquele dia
+            const celula = document.getElementById(dia);
+
+            // Avisa que está carregando
+            celula.innerHTML = "Carregando...";
+
+            try {
+                // Busca os dados na API
+                const resposta = await fetch("http://localhost:3000/aulas/" + dia);
+                const dados = await resposta.json();
+
+                // Monta a lista de aulas
+                let texto = "";
+                dados.aulas.forEach(aula => {
+                    texto += aula.Aula + "<br>";
+                });
+
+                // Mostra na célula
+                celula.innerHTML = texto;
+
+            } catch (erro) {
+                // Se der erro, mostra aviso
+                celula.innerHTML = "Erro!";
+            }
+        }
     </script>
 
 </body>
