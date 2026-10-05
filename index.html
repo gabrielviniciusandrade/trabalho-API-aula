@@ -6,77 +6,79 @@
     <title>Horários Kennedy</title>
 </head>
 <body>
-
     <header></header>
-    
     <main>
         <table>
             <thead>
-              <th>horário /dia</th>
-              <th>segunda-feira</th>
-              <th>terça-feira</th>
-              <th>quarta-feira</th>
-              <th>quinta-feira</th>
-              <th>sexta-feira</th>
+                <th>Horário / Dia</th>
+                <th>Segunda-feira</th>
+                <th>Terça-feira</th>
+                <th>Quarta-feira</th>
+                <th>Quinta-feira</th>
+                <th>Sexta-feira</th>
             </thead>
-
             <tbody>
                 <tr>
                     <td>
-                         <ul>
+                        <ul>
                             <li>7h20</li>
                             <li>8h10</li>
                             <li>9h00</li>
                             <li>10h05</li>
                             <li>10h55</li>
                             <li>11h45</li>
-                         </ul>
+                        </ul>
                     </td>
-                        <td id = "segunda-feira"> </td>
-                        <td id = "terça-feira"> </td>
-                        <td id = "quarta-feira"> </td>
-                        <td id = "quinta-feira"> </td>
-                        <td id = "sexta-feira"> </td>
-                        
-                         <ul>
-                             <li>portugues</li>
-                             <li>back end</li>
-                             <li>portugues</li>
-                             <li>banco de dados</li>
-                             <li>banco de dados</li>
-                             <li>educacao financeira</li>
-                         </ul>
-                    </td>
+                    <td id = "Segunda"> </td>
+                    <td id = "Terça"> </td>
+                    <td id = "Quarta"> </td>
+                    <td id = "Quinta"> </td>
+                    <td id = "Sexta"> </td>
+                </tr>
                 <tr>
-                 <td>
-                    <button onclick="carregar_horario(segunda-feira)">carregar</button></td>
-                    <button onclick="carregar_horario(terça-feira)">carregar</button></td>
-                    <button onclick="carregar_horario(quarta-feira)">carregar</button></td>
-                    <button onclick="carregar_horario(quinta-feira)">carregar</button></td>
-                    <button onclick="carregar_horario(sexta-feira)">carregar</button></td>
-                 </td>
-                </tbody>
-        
+                    <td></td>
+                    <td> <button onclick="carregar_horario('Segunda')">Carregar</button> </td>
+                    <td> <button onclick="carregar_horario('Terça')">Carregar</button> </td>
+                    <td> <button onclick="carregar_horario('Quarta')">Carregar</button> </td>
+                    <td> <button onclick="carregar_horario('Quinta')">Carregar</button> </td>
+                    <td> <button onclick="carregar_horario('Sexta')">Carregar</button> </td>
+                </tr>
+            </tbody>
         </table>
-
-    </main> 
-
-    <footer></footer>
+    </main>
+    <footer></footer>   
 
     <script>
-      
-      async function carregar_horario(dia){
-        const coluna_dia = document.getElementById(dia)
-        try{
-              const link = "http://localhost:3000/horario/" + dia
-        } catch (erro){
-         coluna_dia.innerHTML = "erro ao carregar horários"
-      }
-    }
 
+        async function carregar_horario(dia) {
+            const coluna_dia = document.getElementById(dia)
+            try {
+                const link = "http://localhost:3000/aulas/" + dia
+                const consulta_api = await fetch(link)
+                if(consulta_api.ok) {
+                    const aulas_dia = await consulta_api.json()
+                    if (aulas_dia.length == 0){
+                        coluna_dia.innerHTML = "Nenhuma aula cadastrada!"
+                    } else {
+                        console.log(aulas_dia)
+                        let html = "<ul>"
+                        aulas_dia.aulas.forEach((aula) => {
+                            html += "<li>" + aula.Aula + "</li>"
+                        })
+                        html += "</ul>"
+                        coluna_dia.innerHTML = html
+                    }
+                } else {
+                    alert(erro)
+                    coluna_dia.innerHTML = "Erro ao carregar horários!"
+                }
+            } catch (erro) {
+                alert(erro)
+                coluna_dia.innerHTML = "Erro ao carregar horários!"
+            }
+        }
 
     </script>
-
 
 </body>
 </html>
